@@ -50,22 +50,6 @@ public class FifteenThirtySix {
             return true;
         }
         return false;
-        /**
-         * if (turn == 0 && !swipe.swipe()) {
-         * return false;
-         * } else if (turn == 1 && !swipe.swipeRight()) {
-         * return false;
-         * } else if (turn == 2 && !swipe.swipeDown()) {
-         * return false;
-         * } else if (turn == 3 && !swipe.swipeUp()) {
-         * return false;
-         * } else {
-         * numTurns++;
-         * randomThree();
-         * moves.add(get2DArray());
-         * return true;
-         * }
-         */
     }
 
     /**

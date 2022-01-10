@@ -28,6 +28,15 @@ public class Swipes {
         return (arr[0] == 0 && arr[1] == 0 && arr[2] == 0);
     }
 
+    /**
+     * shiftVertical checks if the numbers can be moved in the vertical
+     * direction and alters the state of the board if so
+     *
+     * @param dir int direction of swipe
+     * @param arr int array
+     * @param col int of the col that the array is in the board
+     * @return true if numbers can be moved
+     */
     public boolean shiftVertical(int dir, int[] arr, int col) {
         int i = 0;
         if (dir == 2) {
@@ -61,6 +70,15 @@ public class Swipes {
         return false;
     }
 
+    /**
+     * mergeVertical checks if the numbers can be merged in the
+     * vertical direction and alters the state of the board if so
+     *
+     * @param dir int direction
+     * @param arr int array
+     * @param col int of the col that the array is in the board
+     * @return true if numbers can be merged
+     */
     public boolean mergeVertical(int dir, int[] arr, int col) {
         int i = 0;
         if (dir == 2) {
@@ -91,6 +109,15 @@ public class Swipes {
         return false;
     }
 
+    /**
+     * shiftHorizontal checks if the numbers can be moved in the horizontal
+     * direction and alters the state of the board if so
+     *
+     * @param dir int direction of swipe
+     * @param arr int array
+     * @param row int of the row that the array is in the board
+     * @return true if numbers can be moved
+     */
     public boolean shiftHorizontal(int dir, int[] arr, int row) {
         int i = 0;
         if (dir == 1) {
@@ -124,6 +151,15 @@ public class Swipes {
         return false;
     }
 
+    /**
+     * mergeHorizontal checks if the numbers can be merged in the
+     * horizontal direction and alters the state of the board if so
+     *
+     * @param dir int direction
+     * @param arr int array
+     * @param row int of the row that the array is in the board
+     * @return true if numbers can be merged
+     */
     public boolean mergeHorizontal(int dir, int[] arr, int row) {
         int i = 0;
         if (dir == 1) {
@@ -150,6 +186,13 @@ public class Swipes {
         return false;
     }
 
+    /**
+     * swipeLeft calls the other methods and checks whether
+     * they were successful
+     *
+     * @param dir int direction of the swipe
+     * @return true if numbers can be merged/shifted
+     */
     public boolean swipe(int dir) {
         boolean changed = false;
         int[] arr;
