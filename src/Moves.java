@@ -25,7 +25,7 @@ public class Moves {
      *
      * @param newArr the new int 2D array LinkedList
      */
-    public void set(LinkedList<int[][]> newArr) {
+    public void setStates(LinkedList<int[][]> newArr) {
         turns = newArr;
     }
 
@@ -34,7 +34,7 @@ public class Moves {
      *
      * @return an int 2D array LinkedList containing the states after each turn
      */
-    public int[][] get() {
+    public int[][] getStates() {
         int[][] arr = new int[3][3];
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {

@@ -16,7 +16,7 @@ public class FifteenThirtySix {
     private int numTurns;
     private boolean gameOver;
     private Moves moves;
-    private Swipe swipe;
+    private Swipes swipes;
     private PauseResume pr;
     private boolean isPaused;
 
@@ -43,21 +43,29 @@ public class FifteenThirtySix {
         if (gameOver) {
             return false;
         }
-
-        if (turn == 0 && !swipe.swipeLeft()) {
-            return false;
-        } else if (turn == 1 && !swipe.swipeRight()) {
-            return false;
-        } else if (turn == 2 && !swipe.swipeDown()) {
-            return false;
-        } else if (turn == 3 && !swipe.swipeUp()) {
-            return false;
-        } else {
+        if (swipes.swipe(turn)) {
             numTurns++;
             randomThree();
             moves.add(get2DArray());
             return true;
         }
+        return false;
+        /**
+         * if (turn == 0 && !swipe.swipe()) {
+         * return false;
+         * } else if (turn == 1 && !swipe.swipeRight()) {
+         * return false;
+         * } else if (turn == 2 && !swipe.swipeDown()) {
+         * return false;
+         * } else if (turn == 3 && !swipe.swipeUp()) {
+         * return false;
+         * } else {
+         * numTurns++;
+         * randomThree();
+         * moves.add(get2DArray());
+         * return true;
+         * }
+         */
     }
 
     /**
@@ -193,7 +201,7 @@ public class FifteenThirtySix {
         numTurns = 0;
         gameOver = false;
         moves = new Moves();
-        swipe = new Swipe(this);
+        swipes = new Swipes(this);
         randomThree();
         randomThree();
         moves.add(get2DArray());
@@ -209,7 +217,7 @@ public class FifteenThirtySix {
         }
         if (numTurns >= 1) {
             moves.remove();
-            board = moves.get();
+            board = moves.getStates();
             numTurns--;
         }
     }
@@ -229,8 +237,8 @@ public class FifteenThirtySix {
             pr = new PauseResume(moves.getTurns(), filepath);
             pr.writeStatesToFile();
         } else {
-            moves.set(pr.readStringsFromFile());
-            board = moves.get();
+            moves.setStates(pr.readStringsFromFile());
+            board = moves.getStates();
             numTurns = moves.getTurns().size() - 1;
         }
     }
